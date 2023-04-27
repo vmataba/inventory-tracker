@@ -1,0 +1,8 @@
+<div class="new-item">
+  <app-item-form></app-item-form>
+</div>
+  <ul class="list-group">
+    <li *ngFor="let item of items$ | async" class="list-group-item">
+        <app-item [item]="item"></app-item>
+    </li>
+  </ul>

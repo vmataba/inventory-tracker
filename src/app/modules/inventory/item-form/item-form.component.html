@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div class="form-group">
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name"  [class.is-invalid]="name?.touched && !name?.valid">
+      <small *ngIf="name?.touched && name?.hasError('required')" class="text-danger">
+        Required!
+      </small>
+    </mat-form-field>
+  </div>
+  <div class="form-group submit-button">
+    <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit">Save</button>
+
+  </div>
+</form>
