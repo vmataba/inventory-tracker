@@ -3,6 +3,8 @@ import {MediaObserver} from "@angular/flex-layout";
 import {Subscription} from "rxjs";
 import {Store} from "@ngrx/store";
 import {toggleSideNav} from "./store/actions/layout.action";
+import {getIGuest} from "./store/selectors/auth.selector";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -17,10 +19,17 @@ export class AppComponent implements OnInit, OnDestroy {
 
   sizeXs = false
 
-  constructor(public mediaObserver: MediaObserver, private store: Store) {
+  constructor(public mediaObserver: MediaObserver, private store: Store, private router: Router) {
   }
 
   ngOnInit() {
+    this.store.select(getIGuest).subscribe(isGuest => {
+      if (!isGuest) {
+        return;
+      }
+      this.router.navigate(['/login']).then(() => this.store.dispatch(toggleSideNav({opened: false})))
+
+    })
     this.mediaSubscription = this.mediaObserver.asObservable().subscribe(mediaChange => {
       const firstChange = mediaChange[0]
       this.sizeXs = ['xs'].includes(firstChange.mqAlias)

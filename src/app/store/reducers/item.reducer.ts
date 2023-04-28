@@ -3,14 +3,14 @@ import {createReducer, on} from "@ngrx/store";
 import {add, load, loadedSuccessfully, loadedWithError, remove} from "../actions/product.action";
 import {Error} from "../models/error.model";
 
-export interface ItemsState {
+export interface InventoryState {
   loading: boolean,
   loaded: boolean,
   items: Item[],
   error?: Error
 }
 
-const initialState: ItemsState = {
+const initialState: InventoryState = {
   loading: false,
   loaded: false,
   items: []

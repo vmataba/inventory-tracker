@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {toggleSideNav} from "../../../store/actions/layout.action";
+import {Observable} from "rxjs";
+import {getIGuest} from "../../../store/selectors/auth.selector";
 
 
 @Component({
@@ -13,7 +15,9 @@ export class ToolbarComponent {
 
   @Input() isSmallScreen: boolean = false
 
+  isGuest$: Observable<boolean>
   constructor(private store: Store) {
+    this.isGuest$ = store.select(getIGuest)
   }
 
   toggleSideNav(opened = undefined){

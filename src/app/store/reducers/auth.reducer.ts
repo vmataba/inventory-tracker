@@ -1,6 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
 import {Error} from "../models/error.model";
-import {loggedIn, login, logInFailed} from "../actions/auth.action";
+import {loggedIn, loggedOut, loggedOutFailed, login, logInFailed, logout} from "../actions/auth.action";
 
 export interface AuthState {
   loading: boolean,
@@ -37,5 +37,22 @@ export const authReducer = createReducer(
     loaded: true,
     isGuest: true,
     user: undefined
+  })),
+  on(logout, (state) => ({
+    ...state,
+    loading: true
+  })),
+  on(loggedOut, (state) => ({
+    ...state,
+    loading: false,
+    loaded: true,
+    isGuest: true,
+    user: undefined
+  })),
+  on(loggedOutFailed, (state, {error}) => ({
+    ...state,
+    loading: false,
+    loaded: true,
+    error
   }))
 )
