@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ItemsListComponent} from './products-list/items-list.component';
 import {RouterModule} from "@angular/router";
 import {combineReducers, StoreModule} from "@ngrx/store";
-import {itemsReducer} from "../../store/reducers/item.reducer";
+import {itemsReducer} from "../../store/reducers/product.reducer";
 import {ItemFormComponent} from './product-form/item-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ItemComponent} from './product/item.component';
