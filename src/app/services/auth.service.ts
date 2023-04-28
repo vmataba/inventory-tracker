@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../store/models/user.model";
 
@@ -7,9 +7,10 @@ import {User} from "../store/models/user.model";
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  loadInfo(){
-    return this.httpClient.get<User>('https://randomuser.me/api')
+  loadInfo() {
+    return this.httpClient.get<User>('assets/db/users.json')
   }
 }

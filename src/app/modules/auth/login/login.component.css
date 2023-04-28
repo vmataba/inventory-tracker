@@ -9,6 +9,7 @@
 }
 mat-form-field {
   width: 100%;
+  border-radius: 0!important;
 }
 
 form button {
@@ -18,5 +19,10 @@ form button {
 @media screen and (max-width: 760px) {
   .login {
     width: 100%;
+    margin-top: 20px;
   }
+}
+
+.login-feedback{
+  padding: 15px;
 }

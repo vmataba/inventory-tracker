@@ -7,6 +7,8 @@ import {authReducer} from "../../store/reducers/auth.reducer";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 const routes: Route[] = [
@@ -23,7 +25,9 @@ const routes: Route[] = [
     StoreModule.forFeature('auth', authReducer),
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatProgressBarModule
   ]
 })
 export class AuthModule {
