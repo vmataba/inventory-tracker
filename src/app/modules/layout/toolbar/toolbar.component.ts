@@ -3,6 +3,7 @@ import {Store} from "@ngrx/store";
 import {toggleSideNav} from "../../../store/actions/layout.action";
 import {Observable} from "rxjs";
 import {getIGuest} from "../../../store/selectors/auth.selector";
+import {logout} from "../../../store/actions/auth.action";
 
 
 @Component({
@@ -22,5 +23,9 @@ export class ToolbarComponent {
 
   toggleSideNav(opened = undefined){
     this.store.dispatch(toggleSideNav({opened}))
+  }
+
+  logout(){
+    this.store.dispatch(logout())
   }
 }
