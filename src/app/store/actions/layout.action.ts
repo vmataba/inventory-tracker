@@ -4,4 +4,4 @@ export enum SidenavActionTypes {
   TOGGLE = '[ SideNav ] Toggle'
 }
 
-export const toggle = createAction(SidenavActionTypes.TOGGLE, props<{ opened?: boolean }>())
+export const toggleSideNav = createAction(SidenavActionTypes.TOGGLE, props<{ opened?: boolean }>())

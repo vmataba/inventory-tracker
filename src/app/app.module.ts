@@ -9,21 +9,19 @@ import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
-import { ToolbarComponent } from './layouts/toolbar/toolbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
-import { SidenavComponent } from './layouts/sidenav/sidenav.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatListModule} from "@angular/material/list";
+import {AuthModule} from "./modules/auth/auth.module";
+import {LayoutModule} from "./modules/layout/layout.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ToolbarComponent,
-    SidenavComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +38,9 @@ import {MatListModule} from "@angular/material/list";
     MatMenuModule,
     MatSidenavModule,
     FlexLayoutModule,
-    MatListModule
+    MatListModule,
+    AuthModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

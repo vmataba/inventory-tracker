@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
 import {Item} from "../../../store/models/item.model";
 import {Store} from "@ngrx/store";
-import {remove} from "../../../store/actions/item.action";
+import {remove} from "../../../store/actions/product.action";
 
 @Component({
-  selector: 'app-item',
+  selector: 'app-product',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })

@@ -1,32 +1,32 @@
 import {createSelector} from "@ngrx/store";
-import {getInventoryState} from "./feature.selector";
+import {getAuthState} from "./feature.selector";
 
-export const selectUserState = createSelector(
-  getInventoryState,
+export const selectAuthState = createSelector(
+  getAuthState,
   (state: any) => state.user
 )
 export const getUser = createSelector(
-  selectUserState,
+  selectAuthState,
   (state: any) => state.user.results[0]
 )
 
 export const getLoading = createSelector(
-  selectUserState,
+  selectAuthState,
   (state: any) => state.loading
 )
 
 export const getLoaded = createSelector(
-  selectUserState,
+  selectAuthState,
   (state: any) => state.loaded
 )
 
 export const getHasError = createSelector(
-  selectUserState,
+  selectAuthState,
   (state: any) => state.hasError
 )
 
 export const getError = createSelector(
-  selectUserState,
+  selectAuthState,
   (state: any) => state.error
 )
 

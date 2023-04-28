@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
-import {add} from "../../../store/actions/item.action";
+import {add} from "../../../store/actions/product.action";
 
 @Component({
-  selector: 'app-item-form',
+  selector: 'app-product-form',
   templateUrl: './item-form.component.html',
   styleUrls: ['./item-form.component.css']
 })

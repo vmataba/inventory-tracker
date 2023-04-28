@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ItemsListComponent} from './items-list/items-list.component';
+import {ItemsListComponent} from './products-list/items-list.component';
 import {RouterModule} from "@angular/router";
 import {combineReducers, StoreModule} from "@ngrx/store";
 import {itemsReducer} from "../../store/reducers/item.reducer";
-import {ItemFormComponent} from './item-form/item-form.component';
+import {ItemFormComponent} from './product-form/item-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ItemComponent} from './item/item.component';
+import {ItemComponent} from './product/item.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
@@ -21,11 +21,11 @@ import {MatTreeModule} from "@angular/material/tree";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {HttpClientModule} from "@angular/common/http";
 import {EffectsModule} from "@ngrx/effects";
-import {UserEffects} from "../../store/effects/user.effects";
-import {userReducer} from "../../store/reducers/user.reducer";
+import {AuthEffect} from "../../store/effects/auth.effect";
+import {authReducer} from "../../store/reducers/auth.reducer";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {sideNavReducer} from "../../store/reducers/sidenav.reducer";
+import {layoutReducer} from "../../store/reducers/layout.reducer";
 
 
 @NgModule({
@@ -41,8 +41,7 @@ import {sideNavReducer} from "../../store/reducers/sidenav.reducer";
     ]),
     StoreModule.forFeature('inventory', combineReducers({
       items: itemsReducer,
-      user: userReducer,
-      sideNav: sideNavReducer
+      user: authReducer
     })),
     ReactiveFormsModule,
     FormsModule,
@@ -59,7 +58,7 @@ import {sideNavReducer} from "../../store/reducers/sidenav.reducer";
     MatTreeModule,
     MatPaginatorModule,
     HttpClientModule,
-    EffectsModule.forFeature([UserEffects]),
+    EffectsModule.forFeature([AuthEffect]),
     MatProgressSpinnerModule,
     MatSidenavModule
   ]

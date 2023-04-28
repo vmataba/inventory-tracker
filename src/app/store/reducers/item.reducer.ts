@@ -1,6 +1,6 @@
 import {Item} from "../models/item.model";
 import {createReducer, on} from "@ngrx/store";
-import {add, load, loadedSuccessfully, loadedWithError, remove} from "../actions/item.action";
+import {add, load, loadedSuccessfully, loadedWithError, remove} from "../actions/product.action";
 import {Error} from "../models/error.model";
 
 export interface ItemsState {

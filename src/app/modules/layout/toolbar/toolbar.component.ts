@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {toggle} from "../../store/actions/sidenav.action";
+import {toggleSideNav} from "../../../store/actions/layout.action";
 
 
 @Component({
@@ -17,6 +17,6 @@ export class ToolbarComponent {
   }
 
   toggleSideNav(opened = undefined){
-    this.store.dispatch(toggle({opened}))
+    this.store.dispatch(toggleSideNav({opened}))
   }
 }
