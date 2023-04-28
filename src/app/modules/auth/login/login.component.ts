@@ -1,17 +1,18 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {login} from "../../../store/actions/auth.action";
 import {Observable} from "rxjs";
-import {getError, getLoading} from "../../../store/selectors/auth.selector";
+import {getError, getIGuest, getLoading} from "../../../store/selectors/auth.selector";
 import {Error} from "../../../store/models/error.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   form: FormGroup
 
@@ -19,13 +20,24 @@ export class LoginComponent {
 
   error$: Observable<Error | undefined>
 
-  constructor(private formBuilder: FormBuilder, private store: Store) {
+  isGuest$: Observable<boolean>
+
+  constructor(private formBuilder: FormBuilder, private store: Store, private router: Router) {
     this.form = formBuilder.group({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
     this.loading$ = store.select(getLoading)
     this.error$ = store.select(getError)
+    this.isGuest$ = store.select(getIGuest)
+  }
+
+  ngOnInit() {
+    this.isGuest$.subscribe(isGuest => {
+      if (!isGuest) {
+        this.router.navigate(['/']).then()
+      }
+    })
   }
 
   get username() {

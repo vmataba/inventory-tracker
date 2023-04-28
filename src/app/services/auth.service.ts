@@ -11,6 +11,6 @@ export class AuthService {
   }
 
   loadInfo() {
-    return this.httpClient.get<User>('assets/db/users.json')
+    return this.httpClient.get<User[]>('assets/db/users.json')
   }
 }

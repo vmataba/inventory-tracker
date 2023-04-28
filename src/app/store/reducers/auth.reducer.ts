@@ -28,7 +28,8 @@ export const authReducer = createReducer(
     user,
     loading: false,
     loaded: true,
-    isGuest: false
+    isGuest: false,
+    error: undefined
   })),
   on(logInFailed, (state, {error}) => ({
     ...state,
