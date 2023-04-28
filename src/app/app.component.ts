@@ -25,15 +25,14 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.store.select(getIGuest).subscribe(isGuest => {
       if (!isGuest) {
+        this.mediaSubscription = this.mediaObserver.asObservable().subscribe(mediaChange => {
+          const firstChange = mediaChange[0]
+          this.sizeXs = ['xs'].includes(firstChange.mqAlias)
+          this.store.dispatch(toggleSideNav({opened: !this.sizeXs}))
+        })
         return;
       }
       this.router.navigate(['/login']).then(() => this.store.dispatch(toggleSideNav({opened: false})))
-
-    })
-    this.mediaSubscription = this.mediaObserver.asObservable().subscribe(mediaChange => {
-      const firstChange = mediaChange[0]
-      this.sizeXs = ['xs'].includes(firstChange.mqAlias)
-      this.store.dispatch(toggleSideNav({opened: !this.sizeXs}))
     })
   }
 
