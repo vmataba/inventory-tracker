@@ -8,8 +8,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 import {FlexModule} from "@angular/flex-layout";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -29,7 +30,9 @@ import {FlexModule} from "@angular/flex-layout";
     MatButtonModule,
     MatSidenavModule,
     RouterOutlet,
-    FlexModule
+    FlexModule,
+    MatListModule,
+    RouterLink
   ]
 })
 export class LayoutModule {

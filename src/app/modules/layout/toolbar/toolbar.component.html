@@ -1,12 +1,17 @@
 <mat-toolbar color="primary" class="toolbar">
-  <button *ngIf="!(isGuest$ | async)" mat-icon-button class="example-icon" aria-label="Toggle SideNav" (click)="toggleSideNav()">
+  <button *ngIf="!(isGuest$ | async)" mat-icon-button class="example-icon" aria-label="Toggle SideNav"
+          (click)="toggleSideNav()">
     <mat-icon>menu</mat-icon>
   </button>
   <span>{{title}}</span>
 
   <ng-container *ngIf="!(isGuest$ | async)">
     <span class="spacer"></span>
-    <ng-container *ngIf="!isSmallScreen">
+
+    <div mat-list-item style="display: flex;" *ngIf="!isSmallScreen">
+      <a mat-button (click)="logout()">Logout</a>
+    </div>
+    <ng-container *ngIf="isSmallScreen">
       <button mat-icon-button class="favorite-icon" aria-label="User Account">
         <mat-icon>person</mat-icon>
       </button>
@@ -14,7 +19,7 @@
         <mat-icon>exit_to_app</mat-icon>
       </button>
     </ng-container>
-    <mat-icon *ngIf="isSmallScreen">more_vert</mat-icon>
   </ng-container>
+
 
 </mat-toolbar>

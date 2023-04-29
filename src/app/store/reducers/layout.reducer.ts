@@ -1,13 +1,15 @@
 import {createReducer, on} from "@ngrx/store";
 import {toggleSideNav} from "../actions/layout.action";
+import {getStoredState} from "../selectors";
+
 
 export interface LayoutState {
   sideNavOpened: boolean
 }
 
-const initialState: LayoutState = {
+const initialState = getStoredState('layout', {
   sideNavOpened: true
-}
+})
 
 export const layoutReducer = createReducer(
   initialState,

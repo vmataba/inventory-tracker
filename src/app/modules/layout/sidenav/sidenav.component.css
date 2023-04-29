@@ -5,11 +5,20 @@
 
 .app-sidebar {
   width: 240px;
+  overflow-y: auto;
 }
 
 .app-content {
   padding: 16px;
   flex: 1;
   background-color: white;
+  height: 90vh;
+  overflow-y: scroll;
 }
-
+.app-content::-webkit-scrollbar{
+  visibility: hidden;
+}
+mat-sidenav{
+  height: 100vh;
+  overflow-y: scroll;
+}

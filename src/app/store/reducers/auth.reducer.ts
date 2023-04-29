@@ -1,6 +1,8 @@
 import {createReducer, on} from "@ngrx/store";
 import {Error} from "../models/error.model";
 import {loggedIn, loggedOut, loggedOutFailed, login, logInFailed, logout} from "../actions/auth.action";
+import {getStoredState} from "../selectors";
+
 
 export interface AuthState {
   loading: boolean,
@@ -10,11 +12,13 @@ export interface AuthState {
   user?: Object
 }
 
-const initialState: AuthState = {
+
+const initialState = getStoredState('auth', {
   loading: false,
   loaded: false,
   isGuest: true
-}
+})
+
 
 export const authReducer = createReducer(
   initialState,

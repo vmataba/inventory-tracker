@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ItemsListComponent} from './products-list/items-list.component';
+import {ProductsListComponent} from './products-list/products-list.component';
 import {RouterModule} from "@angular/router";
 import {combineReducers, StoreModule} from "@ngrx/store";
 import {itemsReducer} from "../../store/reducers/product.reducer";
@@ -26,18 +26,19 @@ import {authReducer} from "../../store/reducers/auth.reducer";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {layoutReducer} from "../../store/reducers/layout.reducer";
+import {DashboardModule} from "../dashboard/dashboard.module";
 
 
 @NgModule({
   declarations: [
-    ItemsListComponent,
+    ProductsListComponent,
     ItemFormComponent,
     ItemComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path: 'items', component: ItemsListComponent}
+      {path: 'products-list', component: ProductsListComponent}
     ]),
     StoreModule.forFeature('inventory', combineReducers({
       items: itemsReducer,
@@ -60,7 +61,8 @@ import {layoutReducer} from "../../store/reducers/layout.reducer";
     HttpClientModule,
     EffectsModule.forFeature([AuthEffect]),
     MatProgressSpinnerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    DashboardModule
   ]
 })
 export class InventoryModule {
