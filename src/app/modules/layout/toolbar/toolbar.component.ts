@@ -4,6 +4,7 @@ import {toggleSideNav} from "../../../store/actions/layout.action";
 import {Observable} from "rxjs";
 import {getIGuest} from "../../../store/selectors/auth.selector";
 import {logout} from "../../../store/actions/auth.action";
+import {getScreenSize} from "../../../store/selectors/layout.selector";
 
 
 @Component({
@@ -14,11 +15,13 @@ import {logout} from "../../../store/actions/auth.action";
 export class ToolbarComponent {
   @Input() title: string = ''
 
-  @Input() isSmallScreen: boolean = false
-
   isGuest$: Observable<boolean>
+
+  screenSize$: Observable<string>
+
   constructor(private store: Store) {
     this.isGuest$ = store.select(getIGuest)
+    this.screenSize$ = store.select(getScreenSize)
   }
 
   toggleSideNav(opened = undefined){

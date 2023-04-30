@@ -8,10 +8,10 @@
   <ng-container *ngIf="!(isGuest$ | async)">
     <span class="spacer"></span>
 
-    <div mat-list-item style="display: flex;" *ngIf="!isSmallScreen">
+    <div mat-list-item style="display: flex;" *ngIf="(screenSize$ | async) !== 'xs'">
       <a mat-button (click)="logout()">Logout</a>
     </div>
-    <ng-container *ngIf="isSmallScreen">
+    <ng-container *ngIf="(screenSize$ | async) == 'xs'">
       <button mat-icon-button class="favorite-icon" aria-label="User Account">
         <mat-icon>person</mat-icon>
       </button>
