@@ -2,9 +2,11 @@
 
   <div class="row">
     <div class="col-md-4">
-      <mat-form-field>
-        <mat-label>Category</mat-label>
-        <input matInput formControlName="category"  [class.is-invalid]="category?.touched && !category?.valid">
+        <mat-form-field appearance="fill">
+          <mat-label>Category</mat-label>
+            <mat-select formControlName="category" [disabled]="false">
+              <mat-option *ngFor="let category of loadCategories()" value="{{category}}">{{category}}</mat-option>
+            </mat-select>
         <small *ngIf="category?.touched && category?.hasError('required')" class="text-danger">
           Required!
         </small>

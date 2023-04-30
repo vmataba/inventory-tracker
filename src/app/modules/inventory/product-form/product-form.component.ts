@@ -60,4 +60,13 @@ export class ProductFormComponent implements OnInit {
     }))
     this.form.reset()
   }
+
+  loadCategories() {
+    return [
+      'Electronics',
+      'Home Accessories',
+      'Furniture',
+      'Motor Spare Parts'
+    ];
+  }
 }

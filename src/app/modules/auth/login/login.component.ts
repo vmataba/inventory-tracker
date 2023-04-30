@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
-import {login} from "../../../store/actions/auth.action";
+import {clearLoginError, login} from "../../../store/actions/auth.action";
 import {Observable} from "rxjs";
 import {getError, getIGuest, getLoading} from "../../../store/selectors/auth.selector";
 import {Error} from "../../../store/models/error.model";

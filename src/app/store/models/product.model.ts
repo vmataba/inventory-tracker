@@ -4,6 +4,6 @@ export interface Product {
   price: number
   quantity: number
   inStock: boolean
-  category: any
+  category: string
   icon?: string
 }

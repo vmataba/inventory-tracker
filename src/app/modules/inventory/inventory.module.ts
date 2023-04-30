@@ -19,13 +19,11 @@ import {MatTableModule} from "@angular/material/table";
 import {MatTreeModule} from "@angular/material/tree";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {HttpClientModule} from "@angular/common/http";
-import {EffectsModule} from "@ngrx/effects";
-import {AuthEffect} from "../../store/effects/auth.effect";
-import {authReducer} from "../../store/reducers/auth.reducer";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {DashboardModule} from "../dashboard/dashboard.module";
 import {StoreModule} from "@ngrx/store";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -34,32 +32,33 @@ import {StoreModule} from "@ngrx/store";
     ProductFormComponent,
     ProductComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild([
-            {path: 'products-list', component: ProductsListComponent}
-        ]),
-        StoreModule.forFeature('inventory', inventoryReducer),
-        ReactiveFormsModule,
-        FormsModule,
-        MatSlideToggleModule,
-        MatCheckboxModule,
-        MatSelectModule,
-        MatInputModule,
-        MatTabsModule,
-        MatButtonModule,
-        MatButtonToggleModule,
-        MatListModule,
-        MatDividerModule,
-        MatTableModule,
-        MatTreeModule,
-        MatPaginatorModule,
-        HttpClientModule,
-        MatProgressSpinnerModule,
-        MatSidenavModule,
-        DashboardModule,
-        NgOptimizedImage
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      {path: 'products-list', component: ProductsListComponent}
+    ]),
+    StoreModule.forFeature('inventory', inventoryReducer),
+    ReactiveFormsModule,
+    FormsModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatInputModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatListModule,
+    MatDividerModule,
+    MatTableModule,
+    MatTreeModule,
+    MatPaginatorModule,
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    DashboardModule,
+    NgOptimizedImage,
+    MatIconModule
+  ]
 })
 export class InventoryModule {
 }

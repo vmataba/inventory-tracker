@@ -10,6 +10,7 @@ export enum AuthActionTypes {
   LOGOUT = '[ User ] Logout',
   LOGGED_OUT = '[ User ] Logged Out',
   LOGOUT_FAILED = '[ User ] Logged Out Failed',
+  CLEAR_LOGIN_ERROR = '[ User ] Clear Login Error',
 }
 
 export const login = createAction(AuthActionTypes.LOGIN,props<{credentials: Credential}>())
@@ -18,3 +19,4 @@ export const logInFailed = createAction(AuthActionTypes.LOGIN_FAILED, props<{ er
 export const logout = createAction(AuthActionTypes.LOGOUT)
 export const loggedOut = createAction(AuthActionTypes.LOGGED_OUT)
 export const loggedOutFailed = createAction(AuthActionTypes.LOGOUT_FAILED,props<{error:Error}>())
+export const clearLoginError = createAction(AuthActionTypes.CLEAR_LOGIN_ERROR)
