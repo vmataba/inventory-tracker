@@ -26,3 +26,9 @@ mat-sidenav{
 .active{
   color: red;
 }
+
+@media screen and (max-width: 760px) {
+  .app-sidebar{
+    width: 100%;
+  }
+}

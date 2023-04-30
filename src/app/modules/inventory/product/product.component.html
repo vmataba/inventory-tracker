@@ -1,13 +1,13 @@
 <div class="card">
       <div class="card-image">
         <img src="./assets/images/x1.jpg" alt="">
-        <span class="card-title">{{product?.name}}</span>
+        <span class="card-title">{{product?.name}} <mat-chip-option> {{product?.quantity}} in Stock</mat-chip-option></span>
+
       </div>
       <div class="card-content">
         <p>
           {{product?.category}} |
-          {{product?.price | currency:'TZS'}} |
-          {{product?.quantity}} in Stock
+          {{product?.price | currency:'TZS'}}
         </p>
       </div>
       <div class="card-action">

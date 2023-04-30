@@ -1,0 +1,19 @@
+<div class="products-list">
+  <p class="text-right">
+    <button mat-fab color="primary"  (click)="toggleEntryForm()">
+      <mat-icon *ngIf="!showEntryForm else hideButton">add</mat-icon>
+      <ng-template #hideButton>
+        <mat-icon>horizontal_rule</mat-icon>
+      </ng-template>
+    </button>
+  </p>
+  <p>
+    Displaying {{totalSales$ | async}} record(s) ...
+  </p>
+  <app-sale-form *ngIf="showEntryForm"></app-sale-form>
+  <div class="row">
+    <div *ngFor="let sale of sales$ | async" class="col-md-3">
+      <app-sale [sale]="sale"></app-sale>
+    </div>
+  </div>
+</div>

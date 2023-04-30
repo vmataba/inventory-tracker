@@ -1,3 +1,5 @@
+import {InventoryState} from "../reducers/inventory.reducer";
+
 export const getStoredState = (feature: string, defaultState: any) => {
   const serialState = localStorage.getItem('appState')
   if (serialState == null) {

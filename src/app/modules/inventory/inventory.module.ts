@@ -22,20 +22,28 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {DashboardModule} from "../dashboard/dashboard.module";
-import {StoreModule} from "@ngrx/store";
+import {combineReducers, StoreModule} from "@ngrx/store";
 import {MatIconModule} from "@angular/material/icon";
+import {SalesComponent} from './sales/sales.component';
+import {SaleComponent} from './sale/sale.component';
+import {SaleFormComponent} from './sale-form/sale-form.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 
 @NgModule({
   declarations: [
     ProductsListComponent,
     ProductFormComponent,
-    ProductComponent
+    ProductComponent,
+    SalesComponent,
+    SaleComponent,
+    SaleFormComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path: 'products-list', component: ProductsListComponent}
+      {path: 'products-list', component: ProductsListComponent},
+      {path: 'sales', component: SalesComponent}
     ]),
     StoreModule.forFeature('inventory', inventoryReducer),
     ReactiveFormsModule,
@@ -57,7 +65,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatSidenavModule,
     DashboardModule,
     NgOptimizedImage,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule
   ]
 })
 export class InventoryModule {

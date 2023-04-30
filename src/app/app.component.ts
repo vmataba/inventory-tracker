@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaObserver} from "@angular/flex-layout";
 import {Subscription} from "rxjs";
 import {Store} from "@ngrx/store";
-import {toggleSideNav} from "./store/actions/layout.action";
+import {changeScreenSize, toggleSideNav} from "./store/actions/layout.action";
 import {getIGuest} from "./store/selectors/auth.selector";
 import {Router} from "@angular/router";
 
@@ -29,6 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
           const firstChange = mediaChange[0]
           this.sizeXs = ['xs'].includes(firstChange.mqAlias)
           this.store.dispatch(toggleSideNav({opened: !this.sizeXs}))
+          this.store.dispatch(changeScreenSize({screenSize: firstChange.mqAlias}))
         })
         return;
       }
