@@ -1,12 +1,11 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {ProductsListComponent} from './products-list/products-list.component';
 import {RouterModule} from "@angular/router";
-import {combineReducers, StoreModule} from "@ngrx/store";
-import {itemsReducer} from "../../store/reducers/product.reducer";
-import {ItemFormComponent} from './product-form/item-form.component';
+import {inventoryReducer} from "../../store/reducers/inventory.reducer";
+import {ProductFormComponent} from './product-form/product-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ItemComponent} from './product/item.component';
+import {ProductComponent} from './product/product.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
@@ -25,45 +24,42 @@ import {AuthEffect} from "../../store/effects/auth.effect";
 import {authReducer} from "../../store/reducers/auth.reducer";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {layoutReducer} from "../../store/reducers/layout.reducer";
 import {DashboardModule} from "../dashboard/dashboard.module";
+import {StoreModule} from "@ngrx/store";
 
 
 @NgModule({
   declarations: [
     ProductsListComponent,
-    ItemFormComponent,
-    ItemComponent
+    ProductFormComponent,
+    ProductComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {path: 'products-list', component: ProductsListComponent}
-    ]),
-    StoreModule.forFeature('inventory', combineReducers({
-      items: itemsReducer,
-      user: authReducer
-    })),
-    ReactiveFormsModule,
-    FormsModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatInputModule,
-    MatTabsModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatListModule,
-    MatDividerModule,
-    MatTableModule,
-    MatTreeModule,
-    MatPaginatorModule,
-    HttpClientModule,
-    EffectsModule.forFeature([AuthEffect]),
-    MatProgressSpinnerModule,
-    MatSidenavModule,
-    DashboardModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {path: 'products-list', component: ProductsListComponent}
+        ]),
+        StoreModule.forFeature('inventory', inventoryReducer),
+        ReactiveFormsModule,
+        FormsModule,
+        MatSlideToggleModule,
+        MatCheckboxModule,
+        MatSelectModule,
+        MatInputModule,
+        MatTabsModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatListModule,
+        MatDividerModule,
+        MatTableModule,
+        MatTreeModule,
+        MatPaginatorModule,
+        HttpClientModule,
+        MatProgressSpinnerModule,
+        MatSidenavModule,
+        DashboardModule,
+        NgOptimizedImage
+    ]
 })
 export class InventoryModule {
 }

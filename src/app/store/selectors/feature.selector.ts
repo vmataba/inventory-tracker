@@ -1,7 +1,7 @@
 import {createFeatureSelector} from "@ngrx/store";
 import {AuthState} from "../reducers/auth.reducer";
 import {LayoutState} from "../reducers/layout.reducer";
-import {InventoryState} from "../reducers/product.reducer";
+import {InventoryState} from "../reducers/inventory.reducer";
 
 export const getInventoryState = createFeatureSelector<InventoryState>('inventory')
 

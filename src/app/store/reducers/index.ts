@@ -1,15 +1,18 @@
 import {ActionReducer, combineReducers, MetaReducer} from "@ngrx/store";
 import {authReducer} from "./auth.reducer";
 import {layoutReducer} from "./layout.reducer";
+import {inventoryReducer} from "./inventory.reducer";
 
 export const reducers = combineReducers({
   auth: authReducer,
-  layout: layoutReducer
+  layout: layoutReducer,
+  inventory: inventoryReducer
 })
 
 export const storeStateChanges = (reducer: ActionReducer<any>) => {
   return function (state: any, action: any) {
-    localStorage.setItem('appState', state != undefined ? JSON.stringify(state) : '{}')
+    state = undefined ? {} : state
+    localStorage.setItem('appState', JSON.stringify(state))
     return reducer(state, action)
   }
 }

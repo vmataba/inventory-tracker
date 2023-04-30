@@ -19,6 +19,7 @@ import {MatListModule} from "@angular/material/list";
 import {AuthModule} from "./modules/auth/auth.module";
 import {LayoutModule} from "./modules/layout/layout.module";
 import {metaReducers, reducers} from "./store/reducers";
+import {AuthEffect} from "./store/effects/auth.effect";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import {metaReducers, reducers} from "./store/reducers";
     RouterOutlet,
     AppRoutingModule,
     BrowserAnimationsModule,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([
+      AuthEffect
+    ]),
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

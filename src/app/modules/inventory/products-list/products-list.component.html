@@ -1,1 +1,16 @@
-hello
+<div class="products-list">
+  <p class="text-right">
+    <button mat-raised-button color="primary"  (click)="toggleEntryForm()">
+      Add Product
+    </button>
+  </p>
+  <p>
+    Displaying {{totalProducts | async}} products ...
+  </p>
+  <app-product-form *ngIf="showEntryForm"></app-product-form>
+  <div class="row">
+    <div *ngFor="let product of products$ | async" class="col-md-3">
+      <app-product [product]="product"></app-product>
+    </div>
+  </div>
+</div>

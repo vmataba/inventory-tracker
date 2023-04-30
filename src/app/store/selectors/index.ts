@@ -3,6 +3,10 @@ export const getStoredState = (feature: string, defaultState: any) => {
   if (serialState == null) {
     return defaultState;
   }
-  const appState = JSON.parse(serialState);
-  return appState[feature];
+ try {
+   const appState = JSON.parse(serialState);
+   return appState[feature];
+ } catch (e){
+    return defaultState
+ }
 }

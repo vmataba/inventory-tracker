@@ -8,7 +8,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {RouterLink, RouterOutlet} from "@angular/router";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {FlexModule} from "@angular/flex-layout";
 import {MatListModule} from "@angular/material/list";
 
@@ -32,7 +32,8 @@ import {MatListModule} from "@angular/material/list";
     RouterOutlet,
     FlexModule,
     MatListModule,
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ]
 })
 export class LayoutModule {

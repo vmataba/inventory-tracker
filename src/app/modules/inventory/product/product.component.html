@@ -1,0 +1,16 @@
+<div class="card">
+      <div class="card-image">
+        <img src="./assets/images/x1.jpg" alt="">
+        <span class="card-title">{{product?.name}}</span>
+      </div>
+      <div class="card-content">
+        <p>
+          {{product?.category}} |
+          {{product?.price | currency:'TZS'}} |
+          {{product?.quantity}} in Stock
+        </p>
+      </div>
+      <div class="card-action">
+        <a (click)="remove(product?.id)">Delete</a>
+      </div>
+</div>
