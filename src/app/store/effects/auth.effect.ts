@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {AuthService} from "../../services/auth.service";
 import {catchError, map, mergeMap, of} from "rxjs";
-import {AuthActionTypes, loggedIn, loggedOut, loggedOutFailed, logInFailed, logout} from "../actions/auth.action";
+import {AuthActionType, loggedIn, loggedOut, loggedOutFailed, logInFailed, logout} from "../actions/auth.action";
 
 @Injectable()
 export class AuthEffect {
@@ -10,7 +10,7 @@ export class AuthEffect {
   }
 
   login$ = createEffect(() => this.actions$.pipe(
-    ofType(AuthActionTypes.LOGIN),
+    ofType(AuthActionType.LOGIN),
     mergeMap(
       (action: any) => this.service.loadInfo().pipe(
         map(users => {

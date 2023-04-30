@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {Observable, of} from "rxjs";
+import {Sale} from "../../../store/models/sale.model";
+import {Store} from "@ngrx/store";
+import {getSales, getSalesCount} from "../../../store/selectors/sale.selector";
 
 export interface PeriodicElement {
   name: string;
@@ -29,11 +32,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class SalesComponent {
   showEntryForm: boolean;
   totalSales$: Observable<number>;
-  sales$: Observable<any[]>
-  constructor() {
+  sales$: Observable<Sale[]>
+  constructor(private store: Store) {
     this.showEntryForm = false;
     this.totalSales$ = of(0)
-    this.sales$ = of([])
+    this.sales$ = store.select(getSales)
+    this.totalSales$ = store.select(getSalesCount)
   }
 
   toggleEntryForm() {

@@ -3,7 +3,7 @@ import {User} from "../models/user.model";
 import {Credential} from "../models/credential.model";
 import {Error} from "../models/error.model";
 
-export enum AuthActionTypes {
+export enum AuthActionType {
   LOGIN = '[ User ] Login',
   LOGGED_IN = '[ User ] Logged In',
   LOGIN_FAILED = '[ User ] Log In Failed',
@@ -13,10 +13,10 @@ export enum AuthActionTypes {
   CLEAR_LOGIN_ERROR = '[ User ] Clear Login Error',
 }
 
-export const login = createAction(AuthActionTypes.LOGIN,props<{credentials: Credential}>())
-export const loggedIn = createAction(AuthActionTypes.LOGGED_IN, props<{ user: User }>())
-export const logInFailed = createAction(AuthActionTypes.LOGIN_FAILED, props<{ error: Error }>())
-export const logout = createAction(AuthActionTypes.LOGOUT)
-export const loggedOut = createAction(AuthActionTypes.LOGGED_OUT)
-export const loggedOutFailed = createAction(AuthActionTypes.LOGOUT_FAILED,props<{error:Error}>())
-export const clearLoginError = createAction(AuthActionTypes.CLEAR_LOGIN_ERROR)
+export const login = createAction(AuthActionType.LOGIN,props<{credentials: Credential}>())
+export const loggedIn = createAction(AuthActionType.LOGGED_IN, props<{ user: User }>())
+export const logInFailed = createAction(AuthActionType.LOGIN_FAILED, props<{ error: Error }>())
+export const logout = createAction(AuthActionType.LOGOUT)
+export const loggedOut = createAction(AuthActionType.LOGGED_OUT)
+export const loggedOutFailed = createAction(AuthActionType.LOGOUT_FAILED,props<{error:Error}>())
+export const clearLoginError = createAction(AuthActionType.CLEAR_LOGIN_ERROR)

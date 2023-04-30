@@ -20,6 +20,7 @@ import {AuthModule} from "./modules/auth/auth.module";
 import {LayoutModule} from "./modules/layout/layout.module";
 import {metaReducers, reducers} from "./store/reducers";
 import {AuthEffect} from "./store/effects/auth.effect";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {AuthEffect} from "./store/effects/auth.effect";
     FlexLayoutModule,
     MatListModule,
     AuthModule,
-    LayoutModule
+    LayoutModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
