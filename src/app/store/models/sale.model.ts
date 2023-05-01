@@ -1,6 +1,13 @@
+import {Product} from "./product.model";
+
+export interface SaleItemItem {
+  product: Product,
+  count: number
+}
+
 export interface Sale {
   id?: number
   amount: number
-  products: []
+  items: SaleItemItem
   customer?: any
 }

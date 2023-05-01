@@ -2,12 +2,13 @@ import {Sale} from "../models/sale.model";
 import {Error} from "../models/error.model";
 import {getStoredState} from "../selectors";
 import {createReducer, on} from "@ngrx/store";
-import {add, load, loadedWithError, loadedWithSuccess} from "../actions/sale.action";
+import {add, addItem, load, loadedWithError, loadedWithSuccess} from "../actions/sale.action";
 
 export interface SaleState {
   loading: boolean
   loaded: boolean
-  sales: Sale[]
+  sales: Sale[],
+  currentSale?: Sale,
   error?: Error
 }
 
@@ -39,6 +40,7 @@ export const saleReducer = createReducer(initialState,
     sales: [
       ...state.sales,
       sale
-    ]
+    ],
+    currentSale: sale
   })),
 )

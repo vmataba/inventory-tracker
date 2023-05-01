@@ -1,5 +1,4 @@
 import {createAction, props} from "@ngrx/store";
-import {Item} from "../models/item.model";
 import {Error} from "../models/error.model";
 import {Product} from "../models/product.model";
 
