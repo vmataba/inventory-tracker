@@ -1,9 +1,13 @@
 import {createSelector} from "@ngrx/store";
 import {getInventoryState} from "./feature.selector";
 
+const getSaleState = createSelector(
+  getInventoryState,
+  (state)=> state.sales
+)
 
 export const getSales = createSelector(
-  getInventoryState,
+  getSaleState,
   (state) => state.sales
 )
 

@@ -1,12 +1,23 @@
 import {ActionReducer, combineReducers, MetaReducer} from "@ngrx/store";
 import {authReducer} from "./auth.reducer";
 import {layoutReducer} from "./layout.reducer";
-import {inventoryReducer} from "./inventory.reducer";
+import {productReducer, ProductState} from "./product.reducer";
+import {saleReducer, SaleState} from "./sale.reducer";
 
-export const reducers = combineReducers({
+export interface InventoryState {
+  products: ProductState,
+  sales: SaleState
+}
+
+export const inventoryReducers = combineReducers({
+  products: productReducer,
+  sales: saleReducer
+})
+
+export const appReducers = combineReducers({
   auth: authReducer,
   layout: layoutReducer,
-  inventory: inventoryReducer
+  inventory: inventoryReducers
 })
 
 export const storeStateChanges = (reducer: ActionReducer<any>) => {

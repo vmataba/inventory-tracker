@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {ProductsListComponent} from './products-list/products-list.component';
 import {RouterModule} from "@angular/router";
-import {inventoryReducer} from "../../store/reducers/inventory.reducer";
 import {ProductFormComponent} from './product-form/product-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ProductComponent} from './product/product.component';
@@ -22,12 +21,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {DashboardModule} from "../dashboard/dashboard.module";
-import {combineReducers, StoreModule} from "@ngrx/store";
+import {StoreModule} from "@ngrx/store";
 import {MatIconModule} from "@angular/material/icon";
 import {SalesComponent} from './sales/sales.component';
 import {SaleComponent} from './sale/sale.component';
 import {SaleFormComponent} from './sale-form/sale-form.component';
 import {MatChipsModule} from "@angular/material/chips";
+import {inventoryReducers} from "../../store/reducers";
 
 
 @NgModule({
@@ -45,7 +45,7 @@ import {MatChipsModule} from "@angular/material/chips";
       {path: 'products-list', component: ProductsListComponent},
       {path: 'sales', component: SalesComponent}
     ]),
-    StoreModule.forFeature('inventory', inventoryReducer),
+    StoreModule.forFeature('inventory', inventoryReducers),
     ReactiveFormsModule,
     FormsModule,
     MatSlideToggleModule,

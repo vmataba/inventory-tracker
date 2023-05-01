@@ -18,7 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatListModule} from "@angular/material/list";
 import {AuthModule} from "./modules/auth/auth.module";
 import {LayoutModule} from "./modules/layout/layout.module";
-import {metaReducers, reducers} from "./store/reducers";
+import {metaReducers, appReducers} from "./store/reducers";
 import {AuthEffect} from "./store/effects/auth.effect";
 
 @NgModule({
@@ -29,7 +29,7 @@ import {AuthEffect} from "./store/effects/auth.effect";
     BrowserModule,
     InventoryModule,
    // StoreModule.forRoot({}, {}),
-    StoreModule.forRoot(reducers, {metaReducers}),
+    StoreModule.forRoot(appReducers, {metaReducers}),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     RouterOutlet,
     AppRoutingModule,
