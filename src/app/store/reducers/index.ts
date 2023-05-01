@@ -22,9 +22,9 @@ export const appReducers = combineReducers({
 
 export const storeStateChanges = (reducer: ActionReducer<any>) => {
   return function (state: any, action: any) {
-    state = undefined ? {} : state
+    state = reducer(state,action)
     localStorage.setItem('appState', JSON.stringify(state))
-    return reducer(state, action)
+    return state
   }
 }
 export const metaReducers: MetaReducer<any>[] = [
