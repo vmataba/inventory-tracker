@@ -14,9 +14,13 @@ export const getStoredState = (feature: string, defaultState: any) => {
     }
     const featureCollection = feature.split('.')
     let state = appState[featureCollection[0]]
+
     if (featureCollection.length > 1) {
       for (let count = 1; count < featureCollection.length; count++) {
         state = findValue(featureCollection[count], state)
+        if (state == null) {
+          return defaultState;
+        }
       }
     }
     return state;

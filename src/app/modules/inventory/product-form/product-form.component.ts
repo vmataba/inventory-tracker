@@ -59,6 +59,7 @@ export class ProductFormComponent implements OnInit {
       }
     }))
     this.form.reset()
+    this.form.clearValidators()
   }
 
   loadCategories() {

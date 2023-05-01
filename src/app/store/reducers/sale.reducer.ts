@@ -7,7 +7,7 @@ import {add, load, loadedWithError, loadedWithSuccess} from "../actions/sale.act
 export interface SaleState {
   loading: boolean
   loaded: boolean
-  sales: Sale[],
+  sales: Sale[]
   error?: Error
 }
 
